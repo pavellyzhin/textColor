@@ -1,0 +1,9 @@
+
+<a routerLink="/" class="btn btn-info mt-2">назад</a> <button class="btn btn-info ml-2 mt-2" (click)="restart()">Обновить</button>
+
+<div class="row mt-4">    
+    <div class="col-sm-12"><small class="text-secondary">назовите цвет, который видите:</small></div>
+    <div class="col-sm-6 mb-2 mt-2" >
+        <div style="width: auto; float:left;" class="mr-2" *ngFor="let item of items;let i =index" [ngStyle]="{'color':item.a.color,'font-size':'20px'}"  class="mr-2">{{item.b.title}}</div>
+    </div>
+    </div>

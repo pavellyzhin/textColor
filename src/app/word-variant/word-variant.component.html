@@ -1,0 +1,22 @@
+<a routerLink="/" class="btn btn-info mt-2">назад</a> <button class="btn btn-info ml-2 mt-2" (click)="restart()">заново</button>
+
+<div class="mt-4 col-sm-6">
+    <p class="text-secondary">Какого цвета текст?</p>
+    <small>{{itemId+1}}/{{count}}</small>
+    <p *ngIf="trueAnswer != null" class="alert mt-2 " [ngClass]="(trueAnswer)?'alert-success' : 'alert-danger'">{{(trueAnswer) ? 'правильно' : 'неправильно'}}</p>
+    <div class="row">
+        <div class="col-sm-12 pt-4 pb-4 border-bottom border-top" align="center">
+            
+            <p *ngIf="!final" [ngStyle]="{'color':combineItem.color,'font-size':'30px'}">{{nowItem.title}}</p>
+            <p *ngIf="final">Завершено.<br> Правильных ответов: {{count-loose}} . <br>Неправильных: {{loose}} . 
+                <br><button (click)="restart()" class="btn btn-success">еще раз</button>
+            </p>
+        </div>
+    </div>
+    <small class="text-secondary">Выберите один из вариантов:</small>
+    <div class="row">
+        <div class="col-sm-6 mt-2" *ngFor="let item of variantItems; let i = index; " >
+            <button class="btn col-sm-12"  [ngClass]="(vIndex == i) ? (trueAnswer) ? 'btn-success' : 'btn-danger' : 'btn-info'" (click)="answer(item); classVariant(i);" [disabled]="(disabled) ? false : false">{{item.title}}</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+
+<a routerLink="/" class="btn btn-info mt-2">назад</a>
+
+<p class=" mt-4 mb-4">Cписок цветов:</p>
+
+<p *ngFor="let item of data" [ngStyle]="{'color':item.color,'font-size':'24px'}">{{item.title}}</p>
